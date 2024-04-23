@@ -1,2 +1,55 @@
-*{box-sizing: border-box; padding: 0; margin: 0;}
+/*
+    Alapok
+*/
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
+*{box-sizing: border-box; padding: 0; margin: 0; font-family: "Red Hat Display", sans-serif;}
 img{width: 100%;}
+
+/*
+    Színek változói
+*/
+
+:root{
+    --light-green: rgba(181, 228, 140, 1);
+    --light-green-2: rgba(153, 217, 140, 1);
+    --turquoise: rgba(52, 160, 164, 1);
+    --bondi-blue: rgba(22, 138, 173, 1);
+    --lapis-lazuli: rgba(30, 96, 145, 1);
+}
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+    font-size: 1.3rem;
+}
+section{
+    
+}
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+.guess-input {
+    width: 50px;
+    height: 50px;
+    margin: 5px; 
+    border: 3px solid #ccc;
+    border-radius: 5px; 
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+#submitButton{
+    background-color: green;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-top: 10px;
+}
