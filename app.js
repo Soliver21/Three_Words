@@ -13,3 +13,19 @@ const words = [
     "Lip", "Man", "Net", "Owl", "Cop",
     "Rod", "Sky", "Toy", "Van", "Zip"
 ];
+
+document.addEventListener("DOMContentLoaded", () => {
+    let container = document.querySelector('.container');
+
+    for (let i = 0; i < 6; i++) {
+        for (let j = 0; j < 3; j++) {
+            let input = document.createElement('input');
+            input.maxLength = "1";
+            input.type = 'text';
+            input.classList.add('guess-input');
+            container.appendChild(input);
+        }
+        container.appendChild(document.createElement('br'));   
+    }
+    container.innerHTML += `<button type="button" id="submitButton">Submit</button>`
+});
