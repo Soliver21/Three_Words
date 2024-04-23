@@ -23,6 +23,9 @@ header{
     height: 20vh;
     font-size: 1.3rem;
 }
+section{
+    
+}
 main{
     display: flex;
     justify-content: center;
