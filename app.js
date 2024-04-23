@@ -27,5 +27,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         container.appendChild(document.createElement('br'));   
     }
-    container.innerHTML += `<button type="button" id="submitButton">Submit</button>`
+    container.innerHTML += `<button type="button" id="submitButton">Submit</button>`;
 });
+
+const icon = document.querySelector('.ico');
+const penis = document.querySelector(".ico p");
+icon.addEventListener("click",()=>{
+    penis.innerText = `How To Play?\nGuess the Word in 10 tries.\nEach guess must be a valid 3-letter word.\nThe color of the tiles will change to show how close your guess was to the word.`
+})

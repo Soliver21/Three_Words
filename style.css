@@ -24,8 +24,9 @@ body{
 header{
     display: flex;
     align-items: center;
+    justify-content: center;
     height: 20vh;
-    width: 100vh;
+    width: 100vw;
     font-size: 1.3rem;
 }
 section{
@@ -60,8 +61,13 @@ main{
 }
 .ico{
     display: flex;
-    justify-content: flex-start;
+    align-items: center;
+    width: auto;
+    position: fixed;
+    left: 2rem;
+
+}
+.ico p{
     
 }
-header img{width: 2.5rem;}
-header .h1{display: flex; align-items: center; justify-content: center;}
+header img{width: 3rem;}
