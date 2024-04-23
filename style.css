@@ -16,6 +16,11 @@ img{width: 100%;}
     --bondi-blue: rgba(22, 138, 173, 1);
     --lapis-lazuli: rgba(30, 96, 145, 1);
 }
+
+body{
+    background-image: url("./img/fekete1.png");
+    color: white;
+}
 header{
     display: flex;
     justify-content: center;
