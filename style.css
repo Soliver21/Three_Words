@@ -1,55 +1,69 @@
-/*
-    Alapok
-*/
-@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
-*{box-sizing: border-box; padding: 0; margin: 0; font-family: "Red Hat Display", sans-serif;}
-img{width: 100%;}
-
-/*
-    Színek változói
-*/
-
-:root{
-    --light-green: rgba(181, 228, 140, 1);
-    --light-green-2: rgba(153, 217, 140, 1);
-    --turquoise: rgba(52, 160, 164, 1);
-    --bondi-blue: rgba(22, 138, 173, 1);
-    --lapis-lazuli: rgba(30, 96, 145, 1);
-}
-header{
+.container .correct {
+    background-color: #6aaa64;
+    border-color: #6aaa64;
+    color: white;
+  }
+  
+  .container .found {
+    background-color: #c9b458;
+    border-color: #c9b458;
+    color: white;
+  }
+  
+  .container .wrong {
+    background-color: #787c7e;
+    border-color: #787c7e;
+    color: white;
+  }
+  
+  .container {
     display: flex;
-    justify-content: center;
     align-items: center;
-    height: 20vh;
-    font-size: 1.3rem;
-}
-section{
-    
-}
-main{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50vh;
-}
-.guess-input {
-    width: 50px;
-    height: 50px;
-    margin: 5px; 
-    border: 3px solid #ccc;
-    border-radius: 5px; 
-    text-align: center;
-    font-size: 1.8rem;
-    font-weight: 700;
-}
-#submitButton{
-    background-color: green;
-    display: block;
+    width: 100%;
     margin: 0 auto;
+    height: 100%;
+    flex-direction: column;
+    margin-top: 40px;
+    font-family: 'Clear Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-weight: bold;
+  }
+  
+  .key-guess {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    border: 2px solid #d3d6da;
+    height: 50px;
+    width: 50px;
+    vertical-align: baseline;
+    color: #1a1a1b;
+    margin: 4px;
+  }
+  
+  .key-guess::before {
+    content: '';
+  }
+  
+  #keyboard {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .key {
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 4px;
+    background-color: #d3d6da;
+    border: 0;
+    height: 50px;
+    width: 43px;
+    margin: 2px;
     cursor: pointer;
-    padding: 8px;
-    border-radius: 5px;
-    font-size: 1rem;
-    font-weight: 500;
-    margin-top: 10px;
-}
+    color: #1a1a1b;
+  }
+  
+  #enter{
+    width: 60px;
+  }

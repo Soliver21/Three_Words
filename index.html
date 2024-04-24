@@ -1,25 +1,17 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <script src="./app.js" defer></script>
-    <title>Three_Word_Game</title>
+  <meta charset="utf-8">
+  <title>Wordle Clone</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <header><h1>TriLetterGuess</h1></header>
-    <section>
-        <h1>How To Play</h1>
-        <h2>Guess the Wordle in 10 tries.</h2>
-        <br>
-        <h3>• Each guess must be a valid 3-letter word.</h3>
-        <h3>• The color of the tiles will change to show how close your guess was to the word.</h3>
-    </section>
-    <main>
-        <div class="container">
-        </div>
-    </main>
-    <footer></footer>
+  <div class="container">
+    <div id="guessGrid"></div>
+    <div id="keyboard"></div>
+  </div>
+  <script src="app.js"></script>
 </body>
 </html>

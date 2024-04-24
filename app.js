@@ -1,7 +1,13 @@
-/*
-    Szavak listája
-*/
-const words = [
+let keys = {
+    'q': '', 'w': '', 'e': '', 'r': '', 't': '', 'y': '', 'u': '', 'i': '', 'o': '', 'p': '', 'break': '',
+    'a': '', 's': '', 'd': '', 'f': '', 'g': '', 'h': '', 'j': '', 'k': '', 'l': '', 'break2': '',
+    'enter': '', 'z': '', 'x': '', 'c': '', 'v': '', 'b': '', 'n': '', 'm': '', '⌫': ''
+  };
+  
+  let guesses = [];
+  let currentGuess = [];
+  
+  const wordList = [
     "Dog", "Cat", "Sun", "Run", "Pen",
     "Bat", "Car", "Bus", "Cap", "Fan",
     "Cow", "Box", "Cup", "Key", "Egg",
@@ -12,120 +18,123 @@ const words = [
     "God", "Hen", "Ink", "Jug", "Kit",
     "Lip", "Man", "Net", "Owl", "Cop",
     "Rod", "Sky", "Toy", "Van", "Zip"
-];
-
-document.addEventListener("DOMContentLoaded", () => {
-    let container = document.querySelector('.container');
-    let randomWord;
-    let guesses = [];
-    let currentRow = 0; // Aktuális sor száma
-
-    // Függvény a véletlenszerű szó kiválasztásához
-    function chooseRandomWord() {
-        const randomIndex = Math.floor(Math.random() * words.length);
-        randomWord = words[randomIndex];
+  ];
+  const SecretWord = wordList[Math.floor(Math.random() * wordList.length)];
+  
+  const NumberOfGuesses = 6;
+  const Correct = 'correct';
+  const Found = 'found';
+  const Wrong = 'wrong';
+  
+  function initialize() {
+    let guessGrid = document.getElementById("guessGrid");
+    for (let i = 0; i < NumberOfGuesses; i++) {
+      for (let j = 0; j < SecretWord.length; j++) {
+        guessGrid.innerHTML += `<div id="${i}${j}" class="key-guess"></div>`;
+      }
+      guessGrid.innerHTML += '<br/>';
     }
-
-    // Függvény a betűk ellenőrzéséhez és a megjelenítéshez
-    function checkAndDisplayGuesses() {
-        let correctPositions = [];
-        let correctLetters = [];
-
-        // Ellenőrzés
-        for (let i = 0; i < randomWord.length; i++) {
-            if (randomWord[i] === guesses[i]) {
-                correctPositions.push(i);
-            } else if (guesses.includes(randomWord[i])) {
-                correctLetters.push(randomWord[i]);
-            }
-        }
-
-        // Megjelenítés
-        let spans = container.querySelectorAll('.guess-span-row-' + currentRow);
-        for (let i = 0; i < spans.length; i++) {
-            spans[i].style.backgroundColor = '';
-            if (correctPositions.includes(i)) {
-                spans[i].style.backgroundColor = 'lime';
-            } else if (correctLetters.includes(spans[i].textContent)) {
-                spans[i].style.backgroundColor = 'yellow';
-            }
-        }
-
-        // Nyert-e?
-        if (guesses.join('') === randomWord) {
-            showModal(true);
-        } else if (currentRow === 5) { // Ha az utolsó soron vagyunk és mégsem nyert
-            showModal(false);
-        } else {
-            // Ha nincs nyertes, lépjünk a következő sorba
-            currentRow++;
-            if (currentRow < 6) {
-                let spansNextRow = container.querySelectorAll('.guess-span-row-' + currentRow);
-                for (let i = 0; i < spansNextRow.length; i++) {
-                    spansNextRow[i].style.backgroundColor = '';
-                }
-            }
-        }
-    }
-
-    // Felugró ablak megjelenítése nyertes vagy vesztes esetén
-    function showModal(isWinner) {
-        let message = isWinner ? "Gratulálok! Nyertél!" : "Sajnos nem sikerült. A helyes szó: " + randomWord;
-        let modal = document.createElement('div');
-        modal.classList.add('modal');
-        modal.innerHTML = `
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <p>${message}</p>
-                <button id="restartButton">Új játék</button>
-            </div>
-        `;
-        container.appendChild(modal);
-
-        // Új játék gomb eseménykezelője
-        document.getElementById('restartButton').addEventListener('click', () => {
-            container.removeChild(modal);
-            resetGame();
-        });
-
-        // Felugró ablak bezárása
-        let closeButton = modal.querySelector('.close');
-        closeButton.addEventListener('click', () => {
-            container.removeChild(modal);
-        });
-    }
-
-    // Függvény a játék újraindításához
-    function resetGame() {
-        container.innerHTML = '';
-        guesses = [];
-        currentRow = 0;
-        chooseRandomWord();
-        renderSpans();
-    }
-
-    // Függvény a span elemek megjelenítéséhez
-    function renderSpans() {
-        for (let row = 0; row < 6; row++) {
-            for (let i = 0; i < randomWord.length; i++) {
-                let span = document.createElement('span');
-                span.classList.add('guess-span-row-' + row);
-                span.textContent = '';
-                container.appendChild(span);
-            }
-            container.innerHTML += '<br>';
-        }
-    }
-
-    // Gomb eseményfigyelője
-    container.addEventListener('click', (event) => {
-        if (event.target && event.target.id === 'submitButton') {
-            checkAndDisplayGuesses();
-        }
+  
+    let keyboard = document.getElementById("keyboard");
+    Object.keys(keys).forEach((key) => {
+      if (key.includes('break')) {
+        keyboard.innerHTML += '<br/>';
+      } else {
+        keyboard.innerHTML += `<button id="${key}" class="key" onclick="keyClick('${key}')">` + key + '</button>';
+      }
     });
-
-    // Játék indítása
-    chooseRandomWord();
-    renderSpans();
-    container.innerHTML += `<button type="button" id="submitButton">Submit</button>`;
-});
+  }
+  initialize();
+  
+  function keyClick(key) {
+    switch (key) {
+      case '⌫':
+        backspace();
+        break;
+      case 'enter':
+        enter();
+        break;
+      default:
+        if (currentGuess.length < SecretWord.length
+          && guesses.length < NumberOfGuesses) {
+          currentGuess.push({ key: key, result: '' });
+          updateCurrentGuess();
+        }
+    }
+  }
+  
+  function backspace() {
+    if (currentGuess.length > 0) {
+      currentGuess.pop();
+    }
+    updateCurrentGuess();
+  }
+  
+  function enter() {
+    if (currentGuess.length < SecretWord.length || guesses.length >= NumberOfGuesses) {
+      if (guesses.length >= NumberOfGuesses) {
+        window.alert("You lost! The word was: " + SecretWord);
+      }
+      return;
+    }
+    let isCorrect = true;
+    for (let i = 0; i < SecretWord.length; i++) {
+      if (SecretWord.charAt(i) !== currentGuess[i].key) {
+        isCorrect = false;
+        break;
+      }
+    }
+    currentGuess.forEach((keyGuess, index) => {
+      if (isCorrect) {
+        keyGuess.result = Correct;
+      } else if (SecretWord.includes(keyGuess.key)) {
+        if (SecretWord.indexOf(keyGuess.key) === index) { // Check if the letter is in the correct place
+          keyGuess.result = Correct;
+        } else {
+          keyGuess.result = Found;
+        }
+      } else {
+        keyGuess.result = Wrong;
+      }
+  
+      if (keys[keyGuess.key] !== Correct) {
+        keys[keyGuess.key] = keyGuess.result;
+      }
+    });
+    updateCurrentGuess(true);
+    if (isCorrect) {
+      window.alert("Congratulations! You won!");
+    }
+    guesses.push(currentGuess);
+    currentGuess = [];
+  }
+  
+  function updateKeyboard() {
+    for (const key in keys) {
+      if (keys[key] !== '') {
+        let keyElement = document.getElementById(`${key}`);
+        keyElement.className = '';
+        keyElement.classList.add(keys[key]);
+        keyElement.classList.add('key');
+      }
+    }
+  }
+  
+  function updateCurrentGuess(guessed = false) {
+    let index = guesses.length;
+    for (let i = 0; i < SecretWord.length; i++) {
+      let guessGrid = document.getElementById(`${index}${i}`);
+      if (currentGuess[i]) {
+        guessGrid.innerHTML = currentGuess[i].key;
+      } else {
+        guessGrid.innerHTML = '';
+      }
+      if (guessed) {
+        guessGrid.classList.add(currentGuess[i].result);
+      }
+    }
+    if (guessed) {
+      updateKeyboard();
+    }
+  }
+  
