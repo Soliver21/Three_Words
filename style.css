@@ -4,6 +4,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
 *{box-sizing: border-box; padding: 0; margin: 0; font-family: "Red Hat Display", sans-serif;}
 img{width: 100%;}
+body{background-image: url("./img/fekete1.png");color: white;}
+hr{width: 30%; margin: 0 auto;}
 
 /*
     Színek változói
@@ -17,25 +19,123 @@ img{width: 100%;}
     --lapis-lazuli: rgba(30, 96, 145, 1);
 }
 
-body{
-    background-image: url("./img/fekete1.png");
-    color: white;
-}
+/*
+    Header
+*/
+
 header{
     display: flex;
     align-items: center;
     justify-content: center;
     height: 20vh;
-    width: 100vw;
     font-size: 1.3rem;
 }
-header h1{text-shadow: 2.5px 2.5px 2px var(--light-green); letter-spacing: 1.5px; font-size: 55px;}
+header h1{
+  position: relative;
+  font-size: 3.5em;
+  Letter-spacing: 15px;
+  color: #0e3742;
+  text-transform:uppercase;
+  text-align:center;
+  line-height: 0.70em;
+  outline:none;
+  animation: animate 5s linear infinite;
+}
+@keyframes animate{
+  0%,100%{
+    color: #fff;
+    text-shadow:
+    0 0 10px #03bcf4,
+    0 0 20px #03bcf4,
+    0 0 40px #03bcf4,
+    0 0 80px #03bcf4,
+    0 0 160px #03bcf4
+    ;
+  }
+}
+header img{width: 3.7rem;}
+/*
+    A container div elem alapjainak beállítása.
+*/
+
+.container .correct {
+  background-color: #6aaa64;
+  border-color: #6aaa64;
+  color: white;
+}
+
+.container .found {
+  background-color: #c9b458;
+  border-color: #c9b458;
+  color: white;
+}
+
+.container .wrong {
+  background-color: #787c7e;
+  border-color: #787c7e;
+  color: white;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  height: 80%;
+  flex-direction: column;
+  margin-top: 40px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+/*
+    Tippelt betű és billentyűzet beállításai
+*/
+.key-guess {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  border: 2px solid #d3d6da;
+  height: 50px;
+  width: 50px;
+  vertical-align: baseline;
+  color: #fff;
+  margin: 4px;
+}
+
+.key-guess::before {
+  content: '';
+}
+
+#keyboard {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.key {
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 4px;
+  background-color: #d3d6da;
+  border: 0;
+  height: 50px;
+  width: 43px;
+  margin: 2px;
+  cursor: pointer;
+  color: #1a1a1b;
+}
+
+#enter{
+  width: 60px;
+}
 .ico{
     display: flex;
     align-items: center;
     width: auto;
     position: fixed;
     left: 2rem;
+    cursor: pointer;
 }
 .ico p{
     position: absolute;
@@ -47,13 +147,7 @@ p{
     letter-spacing: 1px;
     background-color: black;
 }
-header img{width: 3.7rem;}
-main{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50vh;
-}
+
 .guess-input {
     width: 50px;
     height: 50px;
@@ -75,13 +169,26 @@ main{
     font-weight: 500;
     margin-top: 10px;
 }
-footer{
-    height: 30vh;
-    bottom: 0;
-    display: flex;
-    justify-content: space-evenly;
-    padding: 10px;
-    letter-spacing: 1px;
-    
+
+/*
+    Footer 
+*/
+footer {
+  height: 20vh;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  letter-spacing: 1px;
 }
-li{text-decoration: none;}
+
+footer ul {
+  display: flex;
+  column-gap: 15rem;
+}
+
+footer li {
+  list-style-type: none;
+  display: flex;
+  font-size: 1.125rem;
+}

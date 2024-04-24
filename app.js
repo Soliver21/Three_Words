@@ -55,13 +55,17 @@ function keyClick(key) {
       enter();
       break;
     default:
-      if (currentGuess.length < SecretWord.length
-        && guesses.length < NumberOfGuesses) {
+      if (currentGuess.length < SecretWord.length && guesses.length < NumberOfGuesses) {
         currentGuess.push({ key: key, result: '' });
         updateCurrentGuess();
       }
   }
+
+  if (guesses.length >= NumberOfGuesses && !currentGuess.length) {
+    window.alert("You lost! The word was: " + SecretWord);
+  }
 }
+
 
 function backspace() {
   if (currentGuess.length > 0) {
@@ -72,23 +76,22 @@ function backspace() {
 
 function enter() {
   if (currentGuess.length < SecretWord.length || guesses.length >= NumberOfGuesses) {
-    if (guesses.length >= NumberOfGuesses) {
+    if (guesses.length >= NumberOfGuesses && currentGuess.length === 0) {
       window.alert("You lost! The word was: " + SecretWord);
     }
     return;
   }
-  let isCorrect = true;
-  for (let i = 0; i < SecretWord.length; i++) {
-    if (SecretWord.charAt(i) !== currentGuess[i].key) {
-      isCorrect = false;
-      break;
-    }
-  }
+  
+  const guessedWord = currentGuess.map(guess => guess.key).join('').toLowerCase(); 
+  const secretWordLowerCase = SecretWord.toLowerCase(); 
+  
+  let isCorrect = guessedWord === secretWordLowerCase;
+
   currentGuess.forEach((keyGuess, index) => {
     if (isCorrect) {
       keyGuess.result = Correct;
-    } else if (SecretWord.includes(keyGuess.key)) {
-      if (SecretWord.indexOf(keyGuess.key) === index) { // Check if the letter is in the correct place
+    } else if (secretWordLowerCase.includes(keyGuess.key.toLowerCase())) {
+      if (secretWordLowerCase.indexOf(keyGuess.key.toLowerCase()) === index) { 
         keyGuess.result = Correct;
       } else {
         keyGuess.result = Found;
@@ -107,7 +110,13 @@ function enter() {
   }
   guesses.push(currentGuess);
   currentGuess = [];
+
+  if (guesses.length >= NumberOfGuesses && currentGuess.length === 0) {
+    window.alert("You lost! The word was: " + SecretWord);
+  }
 }
+
+
 
 function updateKeyboard() {
   for (const key in keys) {
@@ -139,14 +148,18 @@ function updateCurrentGuess(guessed = false) {
 }
 
 
-const icon = document.querySelector('.ico img');
+const icon = document.querySelector('.ico'); 
 const penis = document.querySelector(".ico p");
-let c=0;
-icon.addEventListener("click",()=>{
-    if(c % 2 == 0){
+let c = 0;
+
+icon.addEventListener("click", () => {
+    if (c % 2 === 0) {
         penis.style.padding = "10px";
-        penis.innerHTML = `<b>How To Play?</b><br>Guess the Word in 10 tries.<br>Each guess must be a valid 3-letter word.<br>The color of the tiles will change to show how close your guess was to the word.`;
-        c+=1;
-    }else{penis.innerText=``; penis.style.padding="0px"; c+=1;}
-    
-})
+        penis.innerHTML = `<b>How To Play?</b><br>Guess the Word in 6 tries.<br>Each guess must be a valid 3-letter word.<br>The color of the tiles will change to show how close your guess was to the word.`;
+        c += 1;
+    } else {
+        penis.innerText = ``;
+        penis.style.padding = "0px";
+        c += 1;
+    }
+});
