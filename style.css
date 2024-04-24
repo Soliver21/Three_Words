@@ -29,9 +29,25 @@ header{
     width: 100vw;
     font-size: 1.3rem;
 }
-section{
-    
+header h1{text-shadow: 2.5px 2.5px 2px var(--light-green); letter-spacing: 1.5px; font-size: 55px;}
+.ico{
+    display: flex;
+    align-items: center;
+    width: auto;
+    position: fixed;
+    left: 2rem;
 }
+.ico p{
+    position: absolute;
+    top: 4rem; left: 1rem;
+}
+p{
+    width: 85vh;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    background-color: black;
+}
+header img{width: 3.7rem;}
 main{
     display: flex;
     justify-content: center;
@@ -59,15 +75,13 @@ main{
     font-weight: 500;
     margin-top: 10px;
 }
-.ico{
+footer{
+    height: 30vh;
+    bottom: 0;
     display: flex;
-    align-items: center;
-    width: auto;
-    position: fixed;
-    left: 2rem;
-
-}
-.ico p{
+    justify-content: space-evenly;
+    padding: 10px;
+    letter-spacing: 1px;
     
 }
-header img{width: 3rem;}
+li{text-decoration: none;}
