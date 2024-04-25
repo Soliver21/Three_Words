@@ -157,7 +157,7 @@ header img{width: 3.7rem;}
     position: absolute;
     top: 5rem; left: .5rem;
 }
-p{
+header p{
     width: 63vh;
     border-radius: 5px;
     letter-spacing: 1px;
@@ -197,6 +197,7 @@ footer {
   align-items: last baseline;
   padding: 10px;
   letter-spacing: 1px;
+  text-align: center;
 }
 
 footer ul {
@@ -208,4 +209,11 @@ footer li {
   list-style-type: none;
   display: flex;
   font-size: 1.125rem;
+}
+#egy, #masodik{
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+#egy:hover, #masodik:hover {
+  transform: scale(1.1);
 }
