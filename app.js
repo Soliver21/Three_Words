@@ -149,16 +149,19 @@ function updateCurrentGuess(guessed = false) {
 
 
 const icon = document.querySelector('.ico'); 
+const img = document.querySelector(".ico img");
 const penis = document.querySelector(".ico p");
 let c = 0;
 
 icon.addEventListener("click", () => {
     if (c % 2 === 0) {
         penis.style.padding = "10px";
-        penis.innerHTML = `<b>How To Play?</b><br>Guess the Word in 6 tries.<br>Each guess must be a valid 3-letter word.<br>The color of the tiles will change to show how close your guess was to the word.`;
+        img.src = "./icons/lightbulb2.png";
+        penis.innerHTML = `<b>How To Play?</b><br>Guess the Word in 6 tries.<br>Each guess must be a valid 3-letter word.<br><br><b>The color of the tiles will change to show how close your guess was to the word:</b> <br><i>gray</i>(not in the word)<br><i>yellow</i>(contains it, but not in the correct place)<br><i>green</i>(in the word and in the right place)`;
         c += 1;
     } else {
         penis.innerText = ``;
+        img.src="./icons/lightbulb.png";
         penis.style.padding = "0px";
         c += 1;
     }

@@ -4,7 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
 *{box-sizing: border-box; padding: 0; margin: 0; font-family: "Red Hat Display", sans-serif;}
 img{width: 100%;}
-body{background-image: url("./img/fekete1.png");color: white;}
+body{background-image: url("./img/fekete1.png");color: white; background-repeat: no-repeat; background-size: cover; background-attachment: fixed;}
 hr{width: 30%; margin: 0 auto;}
 
 /*
@@ -80,7 +80,7 @@ header img{width: 3.7rem;}
   display: flex;
   align-items: center;
   margin: 0 auto;
-  height: 80%;
+  height: 60vh;
   flex-direction: column;
   margin-top: 40px;
   font-weight: bold;
@@ -139,10 +139,10 @@ header img{width: 3.7rem;}
 }
 .ico p{
     position: absolute;
-    top: 4rem; left: 1rem;
+    top: 5rem; left: .5rem;
 }
 p{
-    width: 85vh;
+    width: 63vh;
     border-radius: 5px;
     letter-spacing: 1px;
     background-color: black;
@@ -174,10 +174,11 @@ p{
     Footer 
 */
 footer {
-  height: 20vh;
+  height: 10vh;
   bottom: 0;
   display: flex;
   justify-content: center;
+  align-items: last baseline;
   padding: 10px;
   letter-spacing: 1px;
 }
