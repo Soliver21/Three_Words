@@ -150,19 +150,46 @@ function updateCurrentGuess(guessed = false) {
 
 const icon = document.querySelector('.ico'); 
 const img = document.querySelector(".ico img");
-const penis = document.querySelector(".ico p");
+const headerp = document.querySelector(".ico p");
 let c = 0;
-
 icon.addEventListener("click", () => {
-    if (c % 2 === 0) {
-        penis.style.padding = "10px";
+    if (c % 2 == 0) {
+        headerp.style.padding = "10px";
         img.src = "./icons/lightbulb2.png";
-        penis.innerHTML = `<b>How To Play?</b><br>Guess the Word in 6 tries.<br>Each guess must be a valid 3-letter word.<br><br><b>The color of the tiles will change to show how close your guess was to the word:</b> <br><i>gray</i>(not in the word)<br><i>yellow</i>(contains it, but not in the correct place)<br><i>green</i>(in the word and in the right place)`;
+        headerp.innerHTML = `<b>How To Play?</b><br>Guess the Word in 6 tries.<br>Each guess must be a valid 3-letter word.<br><br><b>The color of the tiles will change to show how close your guess was to the word:</b> <br><i>gray</i>(not in the word)<br><i>yellow</i>(contains it, but not in the correct place)<br><i>green</i>(in the word and in the right place)`;
         c += 1;
     } else {
-        penis.innerText = ``;
+        headerp.innerText = ``;
         img.src="./icons/lightbulb.png";
-        penis.style.padding = "0px";
+        headerp.style.padding = "0px";
         c += 1;
     }
 });
+
+const li1 = document.querySelector("#egy");
+const li2 = document.querySelector("#masodik");
+const footerp1 = document.querySelector("footer .egy");
+const footerp2 = document.querySelector("footer .ketto");
+const footer = document.querySelector("footer");
+let c2 = 0;
+li1.addEventListener("click",()=>{
+  if (c2 % 2 === 0) {
+    li1.innerHTML = `Fekete Olivér András: +36 70 458 95<br>Gyetvai Ádám: +36 20 456 87`;
+    c2+=1;
+  }else{
+    li1.innerHTML = `Contact`;
+    c2+=1;
+  }
+    
+});
+let c3 = 0;
+li2.addEventListener("click",()=>{
+  if (c3 % 2 == 0){
+    li2.innerHTML= `Fekete Olivér András: feketeoliver06@gmail.com<br>Gyetvai Ádám: adamgyetvai26@gmail.com`;
+    c3+=1;
+  }else{
+    li2.innerHTML = `Support`;
+    c3+=1;
+  }
+})
+
