@@ -1,59 +1,73 @@
 /*
     Alapok
 */
-@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
-*{box-sizing: border-box; padding: 0; margin: 0; font-family: "Red Hat Display", sans-serif;}
-img{width: 100%;}
-body{background-image: url("./img/fekete1.png");color: white; background-repeat: no-repeat; background-size: cover; background-attachment: fixed;}
-hr{width: 30%; margin: 0 auto;}
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap");
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Red Hat Display", sans-serif;
+}
+img {
+  width: 100%;
+}
+body {
+  background-image: url("./img/fekete1.png");
+  color: white;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+hr {
+  width: 30%;
+  margin: 0 auto;
+}
 
 /*
     Színek változói
 */
 
-:root{
-    --light-green: rgba(181, 228, 140, 1);
-    --light-green-2: rgba(153, 217, 140, 1);
-    --turquoise: rgba(52, 160, 164, 1);
-    --bondi-blue: rgba(22, 138, 173, 1);
-    --lapis-lazuli: rgba(30, 96, 145, 1);
+:root {
+  --light-green: rgba(181, 228, 140, 1);
+  --light-green-2: rgba(153, 217, 140, 1);
+  --turquoise: rgba(52, 160, 164, 1);
+  --bondi-blue: rgba(22, 138, 173, 1);
+  --lapis-lazuli: rgba(30, 96, 145, 1);
 }
 
 /*
     Header
 */
 
-header{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 20vh;
-    font-size: 1.3rem;
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20vh;
+  font-size: 1.3rem;
 }
-header h1{
+header h1 {
   position: relative;
   font-size: 3.5em;
-  Letter-spacing: 15px;
+  letter-spacing: 15px;
   color: #0e3742;
-  text-transform:uppercase;
-  text-align:center;
-  line-height: 0.70em;
-  outline:none;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 0.7em;
+  outline: none;
   animation: animate 5s linear infinite;
 }
-@keyframes animate{
-  0%,100%{
+@keyframes animate {
+  0%,
+  100% {
     color: #fff;
-    text-shadow:
-    0 0 10px #03bcf4,
-    0 0 20px #03bcf4,
-    0 0 40px #03bcf4,
-    0 0 80px #03bcf4,
-    0 0 160px #03bcf4
-    ;
+    text-shadow: 0 0 10px #03bcf4, 0 0 20px #03bcf4, 0 0 40px #03bcf4,
+      0 0 80px #03bcf4, 0 0 160px #03bcf4;
   }
 }
-header img{width: 3.7rem;}
+header img {
+  width: 3.7rem;
+}
 /*
     A container div elem alapjainak beállítása.
 */
@@ -102,7 +116,7 @@ header img{width: 3.7rem;}
   height: 50vh;
   justify-content: center;
   align-items: center;
-  }
+}
 /*
     Tippelt betű és billentyűzet beállításai
 */
@@ -120,13 +134,13 @@ header img{width: 3.7rem;}
 }
 
 .key-guess::before {
-  content: '';
+  content: "";
 }
 
 #keyboard {
   display: block;
   text-align: center;
-  margin-top: 20px;
+  margin: 20px 50px;
 }
 
 .key {
@@ -142,67 +156,73 @@ header img{width: 3.7rem;}
   color: #1a1a1b;
 }
 
-#enter{
+#enter {
   width: 60px;
 }
-.ico{
-    display: flex;
-    align-items: center;
-    width: auto;
-    position: fixed;
-    left: 2rem;
-    cursor: pointer;
+.ico {
+  display: flex;
+  align-items: center;
+  width: auto;
+  position: fixed;
+  left: 2rem;
+  cursor: pointer;
 }
-.ico p{
-    position: absolute;
-    top: 5rem; left: .5rem;
+.ico p {
+  position: absolute;
+  top: 5rem;
+  left: 0.5rem;
 }
-header p{
-    width: 63vh;
-    border-radius: 5px;
-    letter-spacing: 1px;
-    background-color: black;
+header p {
+  width: 63vh;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  background-color: black;
 }
 
 .guess-input {
-    width: 50px;
-    height: 50px;
-    margin: 5px; 
-    border: 3px solid #ccc;
-    border-radius: 5px; 
-    text-align: center;
-    font-size: 1.8rem;
-    font-weight: 700;
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+  border: 3px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 700;
 }
-#submitButton{
-    background-color: green;
-    display: block;
-    margin: 0 auto;
-    cursor: pointer;
-    padding: 8px;
-    border-radius: 5px;
-    font-size: 1rem;
-    font-weight: 500;
-    margin-top: 10px;
+#submitButton {
+  background-color: green;
+  display: block;
+  margin: 0 auto;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-top: 10px;
 }
 
 /*
     Footer 
 */
 footer {
-  height: 10vh;
-  bottom: 0;
-  display: flex;
-  justify-content: center;
-  align-items: last baseline;
-  padding: 10px;
-  letter-spacing: 1px;
-  text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 5px;
+    font-size: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    font-size: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 footer ul {
   display: flex;
-  column-gap: 15rem;
+  column-gap: 27vh;
 }
 
 footer li {
@@ -210,10 +230,118 @@ footer li {
   display: flex;
   font-size: 1.125rem;
 }
-#egy, #masodik{
+#egy,
+#masodik {
   cursor: pointer;
   transition: transform 0.3s ease;
 }
-#egy:hover, #masodik:hover {
+#egy:hover,
+#masodik:hover {
   transform: scale(1.1);
 }
+
+
+@media(max-width: 1100px){
+    header h1 {
+        font-size: 3rem;
+        letter-spacing: 10px;
+      }
+      
+}
+/*media querry */
+@media(max-width: 850px) {
+    header {
+      height: auto;
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .ico img {
+      width: 2.5rem;
+    }
+  
+  
+  header h1 {
+    font-size: 2.5rem;
+    letter-spacing: 10px;
+  }
+  
+  .ico {
+    position: relative;
+    left: auto;
+    top: auto;
+    margin-top: 10px;
+  }
+  
+  .ico p {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    padding: 0;
+    font-size: 0.8rem;
+  }
+  
+  .popup {
+    left: 10%;
+    right: 10%;
+  }
+  
+  .container {
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .key-guess {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+  }
+  
+  #keyboard {
+    margin-top: 10px;
+  }
+  
+  footer {
+    height: auto;
+    padding: 5px;
+    font-size: 0.9rem;
+  }
+  
+  footer ul {
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+  
+  footer li {
+    text-align: center;
+  }
+}
+
+  @media(max-width: 480px) {
+    header h1 {
+      font-size: 1.5em;
+      letter-spacing: 5px;
+    }
+  
+    .key-guess {
+      width: 35px;
+      height: 35px;
+      font-size: 1.3rem;
+    }
+    header h1 {
+      font-size: 1.5em; 
+    }
+  
+    .ico img {
+      width: 2rem; 
+    }
+  
+    .ico p {
+      font-size: 0.7rem;
+    }
+  }
