@@ -1,28 +1,41 @@
 <!DOCTYPE html>
 <html lang="hu">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./icons/icons8-abc-64.png" type="image/x-icon">
     <link rel="stylesheet" href="./style.css">
     <script src="./app.js" defer></script>
     <title>Three Word Game</title>
 </head>
+
 <body>
     <header>
-        <div class="ico"><img src="./icons/lightbulb.png" alt="icon" title="How to play"><p></p></div>
+        <div class="ico"><img src="./icons/lightbulb.png" alt="icon" title="How to play">
+            <p></p>
+        </div>
         <h1>TriLetterGuess</h1>
     </header>
     <hr>
     <div class="container">
-      <div id="guessGrid"></div>
-      <div id="keyboard"></div>
-    </div>
-    <footer>
-        <ul>
-            <li>Contact</li>
-            <li>Copyright © 2023-2024 TriLetterGame. All rights reserved.</li>
-            <li>Support</li>
-        </ul>
-    </footer>
+        <div class="popup">
+            <div class="popup-content">
+                <p id="popup-message"></p>
+                <button id="replay">Replay</button>
+            </div>
+        </div>
+            <div id="guessGrid"></div>
+            <div id="keyboard"></div>
+        </div>
+
+        <footer>
+            <ul>
+                <li>Contact</li>
+                <li>Copyright © 2023-2024 TriLetterGame. All rights reserved.</li>
+                <li>Support</li>
+            </ul>
+        </footer>
 </body>
+
 </html>

@@ -129,6 +129,7 @@ function updateKeyboard() {
   }
 }
 
+
 function updateCurrentGuess(guessed = false) {
   let index = guesses.length;
   for (let i = 0; i < SecretWord.length; i++) {
@@ -146,6 +147,7 @@ function updateCurrentGuess(guessed = false) {
     updateKeyboard();
   }
 }
+
 
 
 const icon = document.querySelector('.ico'); 
