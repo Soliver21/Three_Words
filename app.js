@@ -6,6 +6,7 @@ let keys = {
 
 let guesses = [];
 let currentGuess = [];
+let SecretWord;
 
 const wordList = [
   "Dog", "Cat", "Sun", "Run", "Pen",
@@ -19,7 +20,6 @@ const wordList = [
   "Lip", "Man", "Net", "Owl", "Cop",
   "Rod", "Sky", "Toy", "Van", "Zip"
 ];
-const SecretWord = wordList[Math.floor(Math.random() * wordList.length)];
 
 const NumberOfGuesses = 6;
 const Correct = 'correct';
@@ -44,7 +44,6 @@ function initialize() {
     }
   });
 }
-initialize();
 
 function keyClick(key) {
   switch (key) {
@@ -62,10 +61,9 @@ function keyClick(key) {
   }
 
   if (guesses.length >= NumberOfGuesses && !currentGuess.length) {
-    window.alert("You lost! The word was: " + SecretWord);
+    showPopup("You lost! The word was: " + SecretWord);
   }
 }
-
 
 function backspace() {
   if (currentGuess.length > 0) {
@@ -77,7 +75,7 @@ function backspace() {
 function enter() {
   if (currentGuess.length < SecretWord.length || guesses.length >= NumberOfGuesses) {
     if (guesses.length >= NumberOfGuesses && currentGuess.length === 0) {
-      window.alert("You lost! The word was: " + SecretWord);
+      showPopup("You lost! The word was: " + SecretWord);
     }
     return;
   }
@@ -106,17 +104,15 @@ function enter() {
   });
   updateCurrentGuess(true);
   if (isCorrect) {
-    window.alert("Congratulations! You won!");
+    showPopup("Congratulations! You won!");
   }
   guesses.push(currentGuess);
   currentGuess = [];
 
   if (guesses.length >= NumberOfGuesses && currentGuess.length === 0) {
-    window.alert("You lost! The word was: " + SecretWord);
+    showPopup("You lost! The word was: " + SecretWord);
   }
 }
-
-
 
 function updateKeyboard() {
   for (const key in keys) {
@@ -128,7 +124,6 @@ function updateKeyboard() {
     }
   }
 }
-
 
 function updateCurrentGuess(guessed = false) {
   let index = guesses.length;
@@ -147,6 +142,61 @@ function updateCurrentGuess(guessed = false) {
     updateKeyboard();
   }
 }
+
+function showPopup(message) {
+  const popup = document.getElementById('popup');
+  const popupMessage = document.getElementById('popup-message');
+  popupMessage.textContent = message;
+  popup.style.display = 'block';
+}
+
+document.getElementById('replay').addEventListener('click', function() {
+  resetGame();
+  document.getElementById('popup').style.display = 'none';
+});
+
+function resetGame() {
+  // Üres tömbök inicializálása
+  guesses = [];
+  currentGuess = [];
+
+  // Véletlenszerű szó kiválasztása és beállítása
+  SecretWord = wordList[Math.floor(Math.random() * wordList.length)];
+
+  // Gombok visszaállítása az eredeti állapotba
+  for (const key in keys) {
+    keys[key] = '';
+  }
+
+  // Gombok frissítése a felhasználói felületen
+  updateKeyboard();
+
+  // Játékmezők és billentyűzet frissítése a kezdeti állapotnak megfelelően
+  let guessGrid = document.getElementById("guessGrid");
+  guessGrid.innerHTML = '';
+  initialize();
+
+  // Tippelt betűk színeinek törlése
+  let guessGridItems = document.querySelectorAll('.key-guess');
+  guessGridItems.forEach(item => {
+    item.style.backgroundColor = '';
+    item.style.borderColor = '';
+    item.style.color = '';
+  });
+
+  // Alsó sorban lévő betűk stílusainak törlése
+  let keyboardItems = document.querySelectorAll('.key');
+  keyboardItems.forEach(item => {
+    item.style.backgroundColor = '';
+    item.style.borderColor = '';
+    item.style.color = '';
+  });
+}
+
+
+// Játék kezdeti inicializálása
+SecretWord = wordList[Math.floor(Math.random() * wordList.length)];
+initialize();
 
 
 
@@ -170,28 +220,25 @@ icon.addEventListener("click", () => {
 
 const li1 = document.querySelector("#egy");
 const li2 = document.querySelector("#masodik");
-const footerp1 = document.querySelector("footer .egy");
-const footerp2 = document.querySelector("footer .ketto");
-const footer = document.querySelector("footer");
 let c2 = 0;
-li1.addEventListener("click",()=>{
-  if (c2 % 2 === 0) {
-    li1.innerHTML = `Fekete Olivér András: +36 70 458 95<br>Gyetvai Ádám: +36 20 456 87`;
-    c2+=1;
-  }else{
-    li1.innerHTML = `Contact`;
-    c2+=1;
-  }
-    
+li1.addEventListener("click", () => {
+    if (c2 % 2 === 0) {
+        li1.innerHTML = `Fekete Olivér András: <span>+36 70 458 95</span><br>Gyetvai Ádám: <span>+36 20 456 87</span>`;
+        c2 += 1;
+    } else {
+        li1.innerHTML = `Contact`;
+        c2 += 1;
+    }
 });
+
 let c3 = 0;
-li2.addEventListener("click",()=>{
-  if (c3 % 2 == 0){
-    li2.innerHTML= `Fekete Olivér András: feketeoliver06@gmail.com<br>Gyetvai Ádám: adamgyetvai26@gmail.com`;
-    c3+=1;
-  }else{
-    li2.innerHTML = `Support`;
-    c3+=1;
-  }
-})
+li2.addEventListener("click", () => {
+    if (c3 % 2 === 0) {
+        li2.innerHTML = `Fekete Olivér András: <span>feketeoliver06@gmail.com</span><br>Gyetvai Ádám: <span>adamgyetvai26@gmail.com</span>`;
+        c3 += 1;
+    } else {
+        li2.innerHTML = `Support`;
+        c3 += 1;
+    }
+});
 

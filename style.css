@@ -222,7 +222,7 @@ footer {
 
 footer ul {
   display: flex;
-  column-gap: 27vh;
+  column-gap: 14rem;
 }
 
 footer li {
