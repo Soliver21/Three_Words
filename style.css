@@ -2,22 +2,26 @@
     Alapok
 */
 @import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap");
+
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
   font-family: "Red Hat Display", sans-serif;
 }
+
 img {
   width: 100%;
 }
+
 body {
   background-image: url("./img/fekete1.png");
   color: white;
   background-repeat: no-repeat;
   background-size: cover;
-
+  background-attachment: fixed;
 }
+
 hr {
   width: 30%;
   margin: 0 auto;
@@ -46,6 +50,7 @@ header {
   height: 20vh;
   font-size: 1.3rem;
 }
+
 header h1 {
   position: relative;
   font-size: 3.5em;
@@ -57,7 +62,9 @@ header h1 {
   outline: none;
   animation: animate 5s linear infinite;
 }
+
 @keyframes animate {
+
   0%,
   100% {
     color: #fff;
@@ -65,9 +72,11 @@ header h1 {
       0 0 80px #03bcf4, 0 0 160px #03bcf4;
   }
 }
+
 header img {
   width: 3.7rem;
 }
+
 /*
     A container div elem alapjainak beállítása.
 */
@@ -101,6 +110,7 @@ header img {
   margin-bottom: 40px;
   position: relative;
 }
+
 /*
     Popup
 */
@@ -117,6 +127,7 @@ header img {
   justify-content: center;
   align-items: center;
 }
+
 /*
     Tippelt betű és billentyűzet beállításai
 */
@@ -159,6 +170,7 @@ header img {
 #enter {
   width: 60px;
 }
+
 .ico {
   display: flex;
   align-items: center;
@@ -167,11 +179,13 @@ header img {
   left: 2rem;
   cursor: pointer;
 }
+
 .ico p {
   position: absolute;
   top: 5rem;
   left: 0.5rem;
 }
+
 header p {
   width: 63vh;
   border-radius: 5px;
@@ -189,6 +203,7 @@ header p {
   font-size: 1.8rem;
   font-weight: 700;
 }
+
 #submitButton {
   background-color: green;
   display: block;
@@ -205,24 +220,20 @@ header p {
     Footer 
 */
 footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    padding: 5px;
-    font-size: 0.9rem;
-    display: flex;
-    flex-direction: column;
-    padding: 5px;
-    font-size: 0.9rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+  justify-content: center;
+  align-items: center;
 }
 
 footer ul {
   display: flex;
-  column-gap: 14rem;
+  column-gap: 27vh;
 }
 
 footer li {
@@ -233,46 +244,49 @@ footer li {
 #egy,
 #masodik {
   cursor: pointer;
+  text-align: center;
   transition: transform 0.3s ease;
 }
+
 #egy:hover,
 #masodik:hover {
   transform: scale(1.1);
 }
 
 
-@media(max-width: 1100px){
-    header h1 {
-        font-size: 3rem;
-        letter-spacing: 10px;
-      }
-      
+@media(max-width: 1100px) {
+  header h1 {
+    font-size: 3rem;
+    letter-spacing: 10px;
+  }
+
 }
+
 /*media querry */
 @media(max-width: 850px) {
-    header {
-      height: auto;
-      flex-direction: column;
-      text-align: center;
-    }
-  
-    .ico img {
-      width: 2.5rem;
-    }
-  
-  
+  header {
+    height: auto;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .ico img {
+    width: 2.5rem;
+  }
+
+
   header h1 {
     font-size: 2.5rem;
     letter-spacing: 10px;
   }
-  
+
   .ico {
     position: relative;
     left: auto;
     top: auto;
     margin-top: 10px;
   }
-  
+
   .ico p {
     position: relative;
     top: auto;
@@ -281,34 +295,34 @@ footer li {
     padding: 0;
     font-size: 0.8rem;
   }
-  
+
   .popup {
     left: 10%;
     right: 10%;
   }
-  
+
   .container {
     height: auto;
     margin-top: 20px;
     margin-bottom: 20px;
   }
-  
+
   .key-guess {
     width: 40px;
     height: 40px;
     font-size: 1.5rem;
   }
-  
+
   #keyboard {
     margin-top: 10px;
   }
-  
+
   footer {
     height: auto;
     padding: 5px;
     font-size: 0.9rem;
   }
-  
+
   footer ul {
     flex-direction: column;
     gap: 10px;
@@ -316,32 +330,40 @@ footer li {
     align-items: center;
     display: flex;
   }
-  
+
   footer li {
     text-align: center;
   }
 }
 
-  @media(max-width: 480px) {
-    header h1 {
-      font-size: 1.5em;
-      letter-spacing: 5px;
-    }
-  
-    .key-guess {
-      width: 35px;
-      height: 35px;
-      font-size: 1.3rem;
-    }
-    header h1 {
-      font-size: 1.5em; 
-    }
-  
-    .ico img {
-      width: 2rem; 
-    }
-  
-    .ico p {
-      font-size: 0.7rem;
-    }
+@media(max-width: 480px) {
+  header h1 {
+    font-size: 1.5em;
+    letter-spacing: 5px;
   }
+
+  .key-guess {
+    width: 35px;
+    height: 35px;
+    font-size: 1.3rem;
+  }
+
+  header h1 {
+    font-size: 1.5em;
+  }
+
+  .ico img {
+    width: 2rem;
+  }
+
+  .ico p {
+    font-size: 0.7rem;
+  }
+}
+@media(max-width: 350px){
+  .key-guess {
+    width: 90px;
+    height: 10px;
+    font-size: .5rem;
+  }
+}

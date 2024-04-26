@@ -208,7 +208,7 @@ icon.addEventListener("click", () => {
     if (c % 2 == 0) {
         headerp.style.padding = "10px";
         img.src = "./icons/lightbulb2.png";
-        headerp.innerHTML = `<b>How To Play?</b><br>Guess the Word in 6 tries.<br>Each guess must be a valid 3-letter word.<br><br><b>The color of the tiles will change to show how close your guess was to the word:</b> <br><i>gray</i>(not in the word)<br><i>yellow</i>(contains it, but not in the correct place)<br><i>green</i>(in the word and in the right place)`;
+        headerp.innerHTML = `<b>How To Play?</b><br>Guess the Word in 6 tries.<br>Each guess must be a valid 3-letter word.<br><br><b>The color of the tiles will change to show how close your guess was to the word:</b> <br><i>gray</i>(not in the word)<br><i>yellow</i>(contains it, but not in the correct place)<br><i>green</i>(in the word and in the right place)<br>To check if `;
         c += 1;
     } else {
         headerp.innerText = ``;
@@ -223,7 +223,7 @@ const li2 = document.querySelector("#masodik");
 let c2 = 0;
 li1.addEventListener("click", () => {
     if (c2 % 2 === 0) {
-        li1.innerHTML = `Fekete Olivér András: <span>+36 70 458 95</span><br>Gyetvai Ádám: <span>+36 20 456 87</span>`;
+        li1.innerHTML = `Fekete Olivér András: +36 70 458 95<br>Gyetvai Ádám: +36 20 456 87`;
         c2 += 1;
     } else {
         li1.innerHTML = `Contact`;
@@ -234,7 +234,7 @@ li1.addEventListener("click", () => {
 let c3 = 0;
 li2.addEventListener("click", () => {
     if (c3 % 2 === 0) {
-        li2.innerHTML = `Fekete Olivér András: <span>feketeoliver06@gmail.com</span><br>Gyetvai Ádám: <span>adamgyetvai26@gmail.com</span>`;
+        li2.innerHTML = `Fekete Olivér András: feketeoliver06@gmail.com<br>Gyetvai Ádám: adamgyetvai26@gmail.com`;
         c3 += 1;
     } else {
         li2.innerHTML = `Support`;
