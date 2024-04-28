@@ -246,7 +246,8 @@ footer {
 
 footer ul {
   display: flex;
-  column-gap: 27vh;
+  column-gap: 15vh;
+  
 }
 
 footer li {
@@ -266,7 +267,7 @@ footer li {
   transform: scale(1.1);
 }
 
-
+/*media querry */
 @media(max-width: 1100px) {
   header h1 {
     font-size: 3rem;
@@ -274,8 +275,6 @@ footer li {
   }
 
 }
-
-/*media querry */
 @media(max-width: 850px) {
   header {
     height: auto;
@@ -373,10 +372,9 @@ footer li {
     font-size: 0.7rem;
   }
 }
-@media(max-width: 350px){
-  .key-guess {
-    width: 90px;
-    height: 10px;
-    font-size: .5rem;
+@media(max-width: 400px){
+
+  footer{
+    position: relative;
   }
 }
