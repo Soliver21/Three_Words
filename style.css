@@ -126,6 +126,19 @@ header img {
   height: 50vh;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+}
+
+#popup-message{
+  padding: 12px;
+  font-size: 1.6rem;
+  color: #000;
+}
+#replay{
+  padding: 12px;
+  color: #000;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 /*
