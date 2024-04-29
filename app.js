@@ -27,7 +27,7 @@ const Found = 'found';
 const Wrong = 'wrong';
 let message = '';
 
-function initialize() {
+const initialize = () => {
   let guessGrid = document.getElementById("guessGrid");
   guessGrid.innerHTML = '';
   for (let i = 0; i < NumberOfGuesses; i++) {
@@ -47,7 +47,7 @@ function initialize() {
   });
 }
 
-function keyClick(key) {
+const keyClick =(key) => {
   switch (key) {
     case '⌫':
       backspace();
@@ -66,14 +66,14 @@ function keyClick(key) {
 }
 
 
-function backspace() {
+const backspace =() => {
   if (currentGuess.length > 0) {
     currentGuess.pop();
   }
   updateCurrentGuess();
 }
 
-function enter() {
+const enter =() => {
   const guessedWord = currentGuess.map(guess => guess.key).join('').toLowerCase();
   const secretWordLowerCase = SecretWord.toLowerCase();
 
@@ -113,7 +113,7 @@ function enter() {
   }
 }
 
-function updateKeyboard() {
+const updateKeyboard = ()=> {
   for (const key in keys) {
     if (keys[key] !== '') {
       let keyElement = document.getElementById(`${key}`);
@@ -124,7 +124,7 @@ function updateKeyboard() {
   }
 }
 
-function updateCurrentGuess(guessed = false) {
+const updateCurrentGuess = (guessed = false) => {
   let index = guesses.length;
   for (let i = 0; i < SecretWord.length; i++) {
     let guessGrid = document.getElementById(`${index}${i}`);
@@ -145,7 +145,7 @@ function updateCurrentGuess(guessed = false) {
   }
 }
 
-function showPopup(message) {
+const showPopup = (message) => {
   const popup = document.getElementById('popup');
   const popupMessage = document.getElementById('popup-message');
   popupMessage.textContent = message;
@@ -157,7 +157,7 @@ document.getElementById('replay').addEventListener('click', function() {
   document.getElementById('popup').style.display = 'none';
 });
 
-function resetGame() {
+const resetGame = () => {
   guesses = [];
   currentGuess = [];
   SecretWord = wordList[Math.floor(Math.random() * wordList.length)];
