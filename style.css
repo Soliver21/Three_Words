@@ -7,7 +7,6 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: "Red Hat Display", sans-serif;
 }
 
 img {
@@ -20,6 +19,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+  font-family: "Red Hat Display", sans-serif;
 }
 
 hr {
@@ -60,17 +60,9 @@ header h1 {
   text-align: center;
   line-height: 0.7em;
   outline: none;
-  animation: animate 5s linear infinite;
-}
-
-@keyframes animate {
-
-  0%,
-  100% {
-    color: #fff;
-    text-shadow: 0 0 10px #03bcf4, 0 0 20px #03bcf4, 0 0 40px #03bcf4,
-      0 0 80px #03bcf4, 0 0 160px #03bcf4;
-  }
+  color: #fff;
+  text-shadow: 0 0 10px #03bcf4, 0 0 20px #03bcf4, 0 0 40px #03bcf4,
+    0 0 80px #03bcf4, 0 0 160px #03bcf4;
 }
 
 header img {
@@ -124,21 +116,30 @@ header img {
   left: 25%;
   right: 25%;
   height: 50vh;
+  border-radius: 10px;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
-#popup-message{
+#popup-message {
   padding: 12px;
-  font-size: 1.6rem;
+  font-size: 2rem;
   color: #000;
 }
-#replay{
-  padding: 12px;
+
+#replay {
+  padding: 10px;
   color: #000;
   border-radius: 10px;
   cursor: pointer;
+  font-size: 1.2rem;
+}
+
+#replay:hover {
+  background-color: #000;
+  color: #fff;
+  transition: .5s;
 }
 
 /*
@@ -247,7 +248,7 @@ footer {
 footer ul {
   display: flex;
   column-gap: 15vh;
-  
+
 }
 
 footer li {
@@ -255,6 +256,7 @@ footer li {
   display: flex;
   font-size: 1.125rem;
 }
+
 #egy,
 #masodik {
   cursor: pointer;
@@ -267,7 +269,9 @@ footer li {
   transform: scale(1.1);
 }
 
-/*media querry */
+/*
+  reszponzivitás
+*/
 @media(max-width: 1100px) {
   header h1 {
     font-size: 3rem;
@@ -275,6 +279,7 @@ footer li {
   }
 
 }
+
 @media(max-width: 850px) {
   header {
     height: auto;
@@ -372,9 +377,10 @@ footer li {
     font-size: 0.7rem;
   }
 }
-@media(max-width: 400px){
 
-  footer{
+@media(max-width: 400px) {
+
+  footer {
     position: relative;
   }
 }

@@ -53,7 +53,9 @@ function keyClick(key) {
       backspace();
       break;
     case 'enter':
-      enter();
+      if (currentGuess.length === 3) {
+        enter();
+      }
       break;
     default:
       if (currentGuess.length < SecretWord.length && guesses.length < NumberOfGuesses) {
@@ -62,6 +64,7 @@ function keyClick(key) {
       }
   }
 }
+
 
 function backspace() {
   if (currentGuess.length > 0) {
@@ -100,9 +103,9 @@ function enter() {
 
   let message = '';
   if (isCorrect) {
-    message = 'Gratulálok, nyertél!';
+    message = 'Congratulations! You won.';
   } else if (guesses.length >= NumberOfGuesses) {
-    message = 'Sajnos vesztettél! A szó ' + SecretWord + " " + "volt.";
+    message = 'You lost! The word was: ' +  " " +  SecretWord;
   }
 
   if (message !== '') {
